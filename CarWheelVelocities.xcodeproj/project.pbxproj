@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177DB7FD2093749100DC77C1 /* Wheel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 177DB7FB2093749100DC77C1 /* Wheel.cpp */; };
 		178F172B208E8EFC004A69DE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 178F172A208E8EFC004A69DE /* main.cpp */; };
+		178F173F209227EA004A69DE /* TrackerHough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 178F173D209227EA004A69DE /* TrackerHough.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		177DB7FB2093749100DC77C1 /* Wheel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wheel.cpp; sourceTree = "<group>"; };
+		177DB7FC2093749100DC77C1 /* Wheel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Wheel.hpp; sourceTree = "<group>"; };
 		178F1727208E8EFC004A69DE /* CarWheelVelocities */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CarWheelVelocities; sourceTree = BUILT_PRODUCTS_DIR; };
 		178F172A208E8EFC004A69DE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		178F173D209227EA004A69DE /* TrackerHough.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrackerHough.cpp; sourceTree = "<group>"; };
+		178F173E209227EA004A69DE /* TrackerHough.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrackerHough.hpp; sourceTree = "<group>"; };
+		178F174020923290004A69DE /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				178F172A208E8EFC004A69DE /* main.cpp */,
+				178F173D209227EA004A69DE /* TrackerHough.cpp */,
+				178F173E209227EA004A69DE /* TrackerHough.hpp */,
+				177DB7FB2093749100DC77C1 /* Wheel.cpp */,
+				177DB7FC2093749100DC77C1 /* Wheel.hpp */,
+				178F174020923290004A69DE /* Constants.h */,
 			);
 			path = CarWheelVelocities;
 			sourceTree = "<group>";
@@ -118,6 +130,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178F173F209227EA004A69DE /* TrackerHough.cpp in Sources */,
+				177DB7FD2093749100DC77C1 /* Wheel.cpp in Sources */,
 				178F172B208E8EFC004A69DE /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,9 +190,60 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv/3.4.1_2/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/3.4.1_2/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-I/usr/local/Cellar/opencv/3.4.1_2/include/opencv",
+					"-I/usr/local/Cellar/opencv/3.4.1_2/include",
+					"-L/usr/local/Cellar/opencv/3.4.1_2/lib",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_videostab",
+					"-lopencv_aruco",
+					"-lopencv_bgsegm",
+					"-lopencv_bioinspired",
+					"-lopencv_ccalib",
+					"-lopencv_dnn_objdetect",
+					"-lopencv_dpm",
+					"-lopencv_face",
+					"-lopencv_photo",
+					"-lopencv_fuzzy",
+					"-lopencv_hfs",
+					"-lopencv_img_hash",
+					"-lopencv_line_descriptor",
+					"-lopencv_optflow",
+					"-lopencv_reg",
+					"-lopencv_rgbd",
+					"-lopencv_saliency",
+					"-lopencv_stereo",
+					"-lopencv_structured_light",
+					"-lopencv_phase_unwrapping",
+					"-lopencv_surface_matching",
+					"-lopencv_tracking",
+					"-lopencv_datasets",
+					"-lopencv_text",
+					"-lopencv_dnn",
+					"-lopencv_plot",
+					"-lopencv_xfeatures2d",
+					"-lopencv_shape",
+					"-lopencv_video",
+					"-lopencv_ml",
+					"-lopencv_ximgproc",
+					"-lopencv_calib3d",
+					"-lopencv_features2d",
+					"-lopencv_highgui",
+					"-lopencv_videoio",
+					"-lopencv_flann",
+					"-lopencv_xobjdetect",
+					"-lopencv_imgcodecs",
+					"-lopencv_objdetect",
+					"-lopencv_xphoto",
+					"-lopencv_imgproc",
+					"-lopencv_core",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -228,8 +293,59 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv/3.4.1_2/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/3.4.1_2/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-I/usr/local/Cellar/opencv/3.4.1_2/include/opencv",
+					"-I/usr/local/Cellar/opencv/3.4.1_2/include",
+					"-L/usr/local/Cellar/opencv/3.4.1_2/lib",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_videostab",
+					"-lopencv_aruco",
+					"-lopencv_bgsegm",
+					"-lopencv_bioinspired",
+					"-lopencv_ccalib",
+					"-lopencv_dnn_objdetect",
+					"-lopencv_dpm",
+					"-lopencv_face",
+					"-lopencv_photo",
+					"-lopencv_fuzzy",
+					"-lopencv_hfs",
+					"-lopencv_img_hash",
+					"-lopencv_line_descriptor",
+					"-lopencv_optflow",
+					"-lopencv_reg",
+					"-lopencv_rgbd",
+					"-lopencv_saliency",
+					"-lopencv_stereo",
+					"-lopencv_structured_light",
+					"-lopencv_phase_unwrapping",
+					"-lopencv_surface_matching",
+					"-lopencv_tracking",
+					"-lopencv_datasets",
+					"-lopencv_text",
+					"-lopencv_dnn",
+					"-lopencv_plot",
+					"-lopencv_xfeatures2d",
+					"-lopencv_shape",
+					"-lopencv_video",
+					"-lopencv_ml",
+					"-lopencv_ximgproc",
+					"-lopencv_calib3d",
+					"-lopencv_features2d",
+					"-lopencv_highgui",
+					"-lopencv_videoio",
+					"-lopencv_flann",
+					"-lopencv_xobjdetect",
+					"-lopencv_imgcodecs",
+					"-lopencv_objdetect",
+					"-lopencv_xphoto",
+					"-lopencv_imgproc",
+					"-lopencv_core",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
