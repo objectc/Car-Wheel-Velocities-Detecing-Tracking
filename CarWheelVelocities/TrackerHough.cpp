@@ -200,11 +200,11 @@ bool TrackerHoughImpl::isValidAsWheel(const cv::Vec3f &circle){
  @param image input Image
  */
 void TrackerHoughImpl::voteForCircles(const cv::Mat &image){
+    std::vector<cv::KeyPoint>keyPts;
     if (candidates.size()>0) {
         Ptr<xfeatures2d::SURF> surf = cv::xfeatures2d::SURF::create();
         surf->setHessianThreshold(2000);
         Mat des;
-        std::vector<cv::KeyPoint>keyPts;
         surf->detect(image, keyPts);
         //        Mat kpImg;
         

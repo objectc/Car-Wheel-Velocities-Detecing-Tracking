@@ -103,7 +103,7 @@ int main(int argc, const char * argv[]) {
             Point center(circleX, circleY);
             Point centerID(circleX, circleY-circleR);
             circle(frame, center, circleR, Scalar(0, 255, 0), 5);
-            putText(frame, to_string(iter->index), centerID, 1, 10, Scalar(255, 0, 0));
+            putText(frame, to_string(iter->index), centerID, 1, 10, Scalar(255, 0, 0),3);
             //if the velocity has mutilple records, show the average speed
             if (iter->xPosVec.size()>=2) {
                 std::ostringstream speedText;
@@ -112,7 +112,7 @@ int main(int argc, const char * argv[]) {
                 float speed = dis/iter->xPosVec.size();
                 speedText<<speed<<" pix/frame";
                 Point textOrg(circleX, circleY+circleR);
-                putText(frame, speedText.str(), textOrg, 1, 5, Scalar(0, 255, 0));
+                putText(frame, speedText.str(), textOrg, 1, 5, Scalar(0, 255, 0),3);
             }
             //if the wheel reach the edge of the image, remove it from the tracking list
             if (circleX>WIDTH-MARGIN_DIST) {
