@@ -107,8 +107,8 @@ int main(int argc, const char * argv[]) {
             //if the velocity has mutilple records, show the average speed
             if (iter->xPosVec.size()>=2) {
                 std::ostringstream speedText;
-                float xLastFrame = iter->xPosVec[0];
-                float dis = circleX-xLastFrame;
+                float beginX = iter->xPosVec[0];
+                float dis = circleX-beginX;
                 float speed = dis/iter->xPosVec.size();
                 speedText<<speed<<" pix/frame";
                 Point textOrg(circleX, circleY+circleR);
