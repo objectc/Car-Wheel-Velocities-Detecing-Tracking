@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-//    reader.set(1, 72);
+//    reader.set(1, 60);
     int count = 0;
     Mat frame;
     
@@ -124,7 +124,7 @@ int main(int argc, const char * argv[]) {
         imshow("Tracking", frame);
         std::ostringstream originalName;
         originalName << "./res/frame_" << count << ".jpg";
-//        imwrite(originalName.str(), frame);
+        imwrite(originalName.str(), frame);
         outputVideo << frame;
         cv::waitKey(1);
         if(count == frameCount-1)

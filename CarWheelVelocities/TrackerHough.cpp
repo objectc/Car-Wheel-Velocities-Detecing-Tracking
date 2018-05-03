@@ -129,6 +129,7 @@ bool TrackerHoughImpl::updateTracking(const cv::Vec3f &circle, std::vector<Wheel
             float offsetX = circleX - iter->circle[0];
             if( offsetX>MIN_WHEEL_X_OFFSET_TRACKING &&
                 offsetX<MAX_WHEEL_X_OFFSET_TRACKING &&
+               
                 abs(circleY-iter->circle[1])<MAX_WHEEL_Y_OFFSET &&
                 abs(circleR-iter->circle[2])<MAX_WHEEL_R_DIFF
               ){
@@ -154,21 +155,23 @@ bool TrackerHoughImpl::updateNewWheel(const cv::Vec3f &circle, std::vector<Wheel
     if (isValidAsWheel(circle)) {
 //        empty list just insert it
         float circleX = (circle)[0];
-        if (wheelList.size() == 0) {
-            Wheel newWheel(circle);
-            newWheel.xPosVec.push_back(circleX);
-            wheelList.push_back(newWheel);
-            return true;
-        }
-        else {
-//            need to compare the relation between existing wheels
-            Vec3f lastWheelCircle = wheelList.back().circle;
-            float lastWheelX = lastWheelCircle[0];
-            if (lastWheelX-circleX>MIN_DIST_WHEELS) {
+        if (circleX<params.width-MARGIN_DIST){
+            if (wheelList.size() == 0) {
                 Wheel newWheel(circle);
                 newWheel.xPosVec.push_back(circleX);
                 wheelList.push_back(newWheel);
                 return true;
+            }
+            else {
+    //            need to compare the relation between existing wheels
+                Vec3f lastWheelCircle = wheelList.back().circle;
+                float lastWheelX = lastWheelCircle[0];
+                if (lastWheelX-circleX>MIN_DIST_WHEELS) {
+                    Wheel newWheel(circle);
+                    newWheel.xPosVec.push_back(circleX);
+                    wheelList.push_back(newWheel);
+                    return true;
+                }
             }
         }
     }
